@@ -27,6 +27,7 @@ def write_dataframe(df, path):
     '''
     Write a pandas.DataFrame to Feather format
     '''
+    path = unicode(path)
     writer = ext.FeatherWriter(path)
 
     if isinstance(df, pd.SparseDataFrame):
@@ -78,6 +79,7 @@ def read_dataframe(path, columns=None):
     -------
     df : pandas.DataFrame
     """
+    path = unicode(path)    
     reader = ext.FeatherReader(path)
 
     if columns is not None:
